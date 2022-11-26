@@ -8,7 +8,7 @@ form1.addEventListener("submit", async function (evt) {
   const data = Object.fromEntries(formData);
   console.log(data);
   if(localStorage.getItem("invalidWorkshopForm")=="false"){
-  fetch("http://localhost:5000/register", {
+  fetch("https://spec-backend.onrender.com/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -26,7 +26,7 @@ form2.addEventListener("submit", async function (evt) {
   const data = Object.fromEntries(formData);
   console.log(data);
   if(localStorage.getItem("invalidWorkshopForm")=="false"){
-  fetch("http://localhost:5000/suggestions", {
+  fetch("https://spec-backend.onrender.com/suggestions", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
