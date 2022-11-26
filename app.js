@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
+const form2=document.getElementById("form2");
 const name = document.querySelector("#name");
 const email = document.querySelector("#email");
+const suggestions=document.getElementById("suggestions");
 const gender = document.querySelector("#gender");
 const rollNumber = document.querySelector("#rollno");
 //animation
@@ -29,30 +31,45 @@ function showSucc(input) {
   inputField.className = "input-field success";
 }
 function checkEmail(input) {
-  const re = /[a-zA-Z]@(nith)\.ac.in\b$/g;
+  const re = /[0-9]+[a-zA-Z]+[0-9]+@nith\.ac\.in/i;
   if (re.test(input.value.trim())) {
+    localStorage.setItem("invalidWorkshopForm",false);
     showSucc(input);
   } else {
+    localStorage.setItem("invalidWorkshopForm",true);
     showErr(
       input,
-      "Email is not valid please register via your college account"
+      "Please enter valid college email id (eg.20bcs090@nith.ac.in)"
     );
   }
 }
 
 function checkGender(input) {
   if (input.value === "M" || input.value === "F") {
+    localStorage.setItem("invalidWorkshopForm",false);
     showSucc(input);
   } else {
+    localStorage.setItem("invalidWorkshopForm",true);
     showErr(input, "Please enter M or F");
+  }
+}
+function checkSuggestions(input) {
+  if (input.value.trim() === "" || input.value.trim() === " " || input.value === null) {
+    localStorage.setItem("invalidWorkshopForm",true);
+    showErr(input, "Please enter M or F");
+  } else {
+    localStorage.setItem("invalidWorkshopForm",false);
+    showSucc(input);
   }
 }
 
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
     if (input.value.trim() === "") {
+      localStorage.setItem("invalidWorkshopForm",true);
       showErr(input, `${getFieldname(input)} is required`);
     } else {
+      localStorage.setItem("invalidWorkshopForm",false);
       showSucc(input);
     }
   });
@@ -63,18 +80,22 @@ function getFieldname(input) {
 
 function checkLength(input, min, max) {
   if (input.value.length < min) {
+    localStorage.setItem("invalidWorkshopForm",true);
     showErr(input, `${getFieldname(input)} must be at least ${min} characters`);
   } else if (input.value.length > max) {
+    localStorage.setItem("invalidWorkshopForm",true);
     showErr(
       input,
       `${getFieldname(input)} must be less than ${max} characters`
     );
   } else {
+    localStorage.setItem("invalidWorkshopForm",false);
     showSucc(input);
   }
 }
 
 form.addEventListener("submit", function (evt) {
+  localStorage.setItem("invalidWorkshopForm",false);
   evt.preventDefault();
   checkRequired([name, email, gender, rollno]);
 
@@ -83,4 +104,12 @@ form.addEventListener("submit", function (evt) {
   checkGender(gender);
 
   checkEmail(email);
+});
+
+form2.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  localStorage.setItem("invalidWorkshopForm",false);
+  checkRequired([email, suggestions]);
+  checkEmail(email);
+  checkSuggestions(suggestions);
 });

@@ -8,7 +8,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="index.css" />
-    <title>Registeration Form</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <title>Registration Form - Breakout Brigade</title>
   </head>
   <body>
     <div class="container">
@@ -61,19 +62,19 @@
 
             <p class="social-text">Visit our social media handles</p>
             <div class="social-media">
-              <a
+              <a target="_blank"
                 href="https://www.instagram.com/s.p.e.c_nith/?hl=en"
                 class="social-icon"
               >
                 <i class="fab fa fa-instagram"></i>
               </a>
-              <a href="https://twitter.com/spec__nith" class="social-icon">
+              <a target="_blank" href="https://twitter.com/spec__nith" class="social-icon">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="https://spec.nith.ac.in/" class="social-icon">
+              <a target="_blank" href="mailto:spec@nith.ac.in" class="social-icon">
                 <i class="fab fa-google"></i>
               </a>
-              <a
+              <a target="_blank"
                 href="https://in.linkedin.com/company/spec-nith"
                 class="social-icon"
               >
@@ -81,29 +82,41 @@
               </a>
             </div>
           </form>
-          <form class="sign-up-form">
+          <form class="sign-up-form" id="form2">
             <h2 class="title">Your Suggestions</h2>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter your college mail id"
+              />
+              <small>Error Message</small>
+            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input name="suggestions" type="text" id="suggestions" placeholder="Any suggestions for the workshop" />
+              <small>Error Message</small>
             </div>
           
             <button class="btn">Submit</button>
             <p class="social-text">Visit our social media handles</p>
             <div class="social-media">
                 <a
+                target="_blank"
                 href="https://www.instagram.com/s.p.e.c_nith/?hl=en"
                 class="social-icon"
               >
                 <i class="fab fa fa-instagram"></i>
               </a>
-              <a href="https://twitter.com/spec__nith" class="social-icon">
+              <a target="_blank" href="https://twitter.com/spec__nith" class="social-icon">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="https://spec.nith.ac.in/" class="social-icon">
+              <a target="_blank" href="mailto:spec@nith.ac.in" class="social-icon">
                 <i class="fab fa-google"></i>
               </a>
-              <a
+              <a target="_blank"
                 href="https://in.linkedin.com/company/spec-nith"
                 class="social-icon"
               >
@@ -116,22 +129,21 @@
 
       <div class="panels-container">
         <div class="panel left-panel">
-          <div class="content">
-            <h3>Want to explore all</h3>
-            <h3>Tech-domains ?</h3>
-            <Learn>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, sunt! </p>
-            <button class="btn transparent" id="sign-up-btn">More</button>
+          <div class="content" style="text-align: left;">
+            <h3>Want to explore all Tech-domains ?</h3>
+            <p style="padding:1rem 0;">
+               Regsiter Now for <strong>Breakout Brigade</strong> by SPEC NITH being held on 11th December 2022. 
+              <br>
+              <br>
+              Need to give suggestions? Click Below</p>
+            <button class="btn transparent" id="sign-up-btn">Suggestions</button>
           </div>
           <img src="Checklist-removebg-preview.png" class="image" alt="" />
         </div>
         <div class="panel right-panel">
-          <div class="content">
-            <h3>Register here !</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
-            </p>
-            <button class="btn transparent" id="sign-in-btn">Register</button>
+          <div class="content" style="text-align:left;margin:0 auto;">
+            <h3>For Registration Click Here!</h3>
+            <button class="btn transparent" id="sign-in-btn" style="margin-top:1.5rem;">Register</button>
           </div>
           <img src="spec_logo.png" class="image" alt="" />
         </div>
